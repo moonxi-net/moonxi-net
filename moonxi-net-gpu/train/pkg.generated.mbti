@@ -1,13 +1,13 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonxi-net/moonxi-net-gpu/train"
+package "chnlkw/moonxi-net-gpu/train"
 
 import {
-  "moonxi-net/moonxi-net/dataloader",
-  "moonxi-net/moonxi-net-gpu/tensor",
+  "chnlkw/moonxi-net/dataloader",
+  "chnlkw/moonxi-net-gpu/tensor",
 }
 
 // Values
-pub fn run_gpu(@moonxi-net/moonxi-net/train.Experiment[@tensor.GpuTensor], @dataloader.DataLoader[@tensor.GpuTensor], epochs? : Int, batch_size? : Int, eval_loader? : @dataloader.DataLoader[@tensor.GpuTensor], device_id? : Int, pool_capacity? : Int64, on_batch_end? : (Int, Int, Float) -> Unit, on_epoch_end? : (Int, Double, Double, Double) -> Unit) -> Unit
+pub fn run_gpu(@chnlkw/moonxi-net/train.Experiment[@tensor.GpuTensor], @dataloader.DataLoader[@tensor.GpuTensor], epochs? : Int, batch_size? : Int, eval_loader? : @dataloader.DataLoader[@tensor.GpuTensor], device_id? : Int, pool_capacity? : Int64, on_batch_end? : (Int, Int, Float) -> Unit, on_epoch_end? : (Int, Double, Double, Double) -> Unit) -> Unit
 
 // Errors
 

@@ -1,8 +1,8 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonxi-net/moonxi-net/grad"
+package "chnlkw/moonxi-net/grad"
 
 import {
-  "moonxi-net/moonxi-net",
+  "chnlkw/moonxi-net",
 }
 
 // Values

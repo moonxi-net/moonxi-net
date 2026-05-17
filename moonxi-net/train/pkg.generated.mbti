@@ -1,13 +1,13 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonxi-net/moonxi-net/train"
+package "chnlkw/moonxi-net/train"
 
 import {
-  "moonxi-net/moonxi-net",
-  "moonxi-net/moonxi-net/dataloader",
-  "moonxi-net/moonxi-net/grad",
-  "moonxi-net/moonxi-net/loss",
-  "moonxi-net/moonxi-net/model",
-  "moonxi-net/moonxi-net/optimizer",
+  "chnlkw/moonxi-net",
+  "chnlkw/moonxi-net/dataloader",
+  "chnlkw/moonxi-net/grad",
+  "chnlkw/moonxi-net/loss",
+  "chnlkw/moonxi-net/model",
+  "chnlkw/moonxi-net/optimizer",
 }
 
 // Values

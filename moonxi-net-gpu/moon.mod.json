@@ -1,8 +1,8 @@
 {
-  "name": "moonxi-net/moonxi-net-gpu",
+  "name": "chnlkw/moonxi-net-gpu",
   "version": "0.1.0",
   "deps": {
-    "moonxi-net/moonxi-net": {
+    "chnlkw/moonxi-net": {
       "path": "../moonxi-net"
     },
     "brickfrog/moontrace": "0.8.0",

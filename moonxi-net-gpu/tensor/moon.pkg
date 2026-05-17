@@ -1,5 +1,5 @@
 import {
-  "moonxi-net/moonxi-net" @ts,
-  "moonxi-net/moonxi-net-gpu/cuda" @cuda,
-  "moonxi-net/moonxi-net/optimizer" @optimizer,
+  "chnlkw/moonxi-net" @ts,
+  "chnlkw/moonxi-net-gpu/cuda" @cuda,
+  "chnlkw/moonxi-net/optimizer" @optimizer,
 }

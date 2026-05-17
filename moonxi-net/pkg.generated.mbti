@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonxi-net/moonxi-net"
+package "chnlkw/moonxi-net"
 
 import {
   "moonbitlang/core/debug",
