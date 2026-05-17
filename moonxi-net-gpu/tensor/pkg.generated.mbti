@@ -3,8 +3,8 @@ package "chnlkw/moonxi-net-gpu/tensor"
 
 import {
   "chnlkw/moonxi-net",
-  "chnlkw/moonxi-net/optimizer",
   "chnlkw/moonxi-net-gpu/cuda",
+  "chnlkw/moonxi-net/optimizer",
 }
 
 // Values
