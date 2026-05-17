@@ -1,0 +1,23 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "chnlkw/moonxi-net/examples/tutorial"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+type Grad[T]
+
+type Linear[T]
+
+type NpArray derive(@debug.Debug)
+
+// Type aliases
+
+// Traits
+trait Tensor : Add + Sub + Mul
+

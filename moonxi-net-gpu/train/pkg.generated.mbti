@@ -2,8 +2,8 @@
 package "chnlkw/moonxi-net-gpu/train"
 
 import {
-  "chnlkw/moonxi-net/dataloader",
   "chnlkw/moonxi-net-gpu/tensor",
+  "chnlkw/moonxi-net/dataloader",
 }
 
 // Values
