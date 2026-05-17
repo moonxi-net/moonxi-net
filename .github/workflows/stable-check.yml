@@ -1,0 +1,44 @@
+name: stable-check
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  merge_group:
+
+jobs:
+  stable-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup MoonBit
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> $GITHUB_PATH
+
+      - name: Update dependencies
+        run: cd moonxi-net && moon update
+
+      - name: Check formatting
+        timeout-minutes: 10
+        run: cd moonxi-net && moon fmt && git diff --exit-code
+
+      - name: Type check
+        timeout-minutes: 10
+        run: cd moonxi-net && moon check --target native --deny-warn
+
+      - name: Verify interfaces
+        timeout-minutes: 10
+        run: cd moonxi-net && moon info --target native && git diff --exit-code
+
+      - name: Run CPU tests
+        timeout-minutes: 10
+        run: |
+          cd moonxi-net
+          for pkg in nparray grad model optimizer loss train dataloader utils datasets/mnist datasets/cifar10; do
+            echo "=== Testing $pkg ==="
+            moon test --target native -p "chnlkw/moonxi-net/$pkg"
+          done

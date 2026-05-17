@@ -1,5 +1,10 @@
 # moonxi-net
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/moonxi-net/moonxi-net)
+[![CI](https://github.com/moonxi-net/moonxi-net/actions/workflows/stable-check.yml/badge.svg)](https://github.com/moonxi-net/moonxi-net/actions/workflows/stable-check.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Made with MoonBit](https://img.shields.io/badge/made%20with-MoonBit-blueviolet)](https://www.moonbitlang.com/)
+
 A deep learning training framework built with [MoonBit](https://www.moonbitlang.com/) + CUDA/cuDNN, featuring a tape-based autograd engine and PyTorch-like API. Uses **tagless final** style to abstract over CPU (`NpArray`) and GPU (`GpuTensor`) backends — write your model once, run on either. Supports CUDA/cuBLAS/cuDNN acceleration.
 
 Trained a ResNet-18 on CIFAR-10 to **69.6% test accuracy** (20 epochs, momentum SGD, no data augmentation) — comparable to PyTorch's 70.6%, but **32% faster per epoch**. Run `bash scripts/run_cifar10_training.sh` for a side-by-side comparison; results go to `reports/`.
