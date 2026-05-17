@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonxi-net/moonxi-net/datasets/mnist"
+package "chnlkw/moonxi-net/datasets/mnist"
 
 import {
-  "moonxi-net/moonxi-net",
-  "moonxi-net/moonxi-net/dataloader",
+  "chnlkw/moonxi-net",
+  "chnlkw/moonxi-net/dataloader",
 }
 
 // Values

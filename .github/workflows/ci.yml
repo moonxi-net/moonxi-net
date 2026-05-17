@@ -28,17 +28,7 @@ jobs:
 
       - name: Run CPU tests
         run: |
-          cd moonxi-net && moon test --target native \
-            -p moonxi-net/moonxi-net/nparray \
-            -p moonxi-net/moonxi-net/grad \
-            -p moonxi-net/moonxi-net/optimizer \
-            -p moonxi-net/moonxi-net/model \
-            -p moonxi-net/moonxi-net/train \
-            -p moonxi-net/moonxi-net/loss \
-            -p moonxi-net/moonxi-net/dataloader \
-            -p moonxi-net/moonxi-net/utils \
-            -p moonxi-net/moonxi-net/datasets/cifar10 \
-            -p moonxi-net/moonxi-net/datasets/mnist
+          cd moonxi-net && moon test --target native
 
       - name: Verify interfaces
         run: cd moonxi-net && moon info && git diff --exit-code

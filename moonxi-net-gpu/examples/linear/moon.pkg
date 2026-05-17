@@ -1,8 +1,8 @@
 import {
-  "moonxi-net/moonxi-net" @tensor,
-  "moonxi-net/moonxi-net-gpu/tensor" @gt,
-  "moonxi-net/moonxi-net-gpu/cuda" @cuda,
-  "moonxi-net/moonxi-net/grad" @grad,
+  "chnlkw/moonxi-net" @tensor,
+  "chnlkw/moonxi-net-gpu/tensor" @gt,
+  "chnlkw/moonxi-net-gpu/cuda" @cuda,
+  "chnlkw/moonxi-net/grad" @grad,
 }
 
 options(

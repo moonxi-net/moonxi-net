@@ -1,6 +1,6 @@
 import {
-  "moonxi-net/moonxi-net" @tensor,
-  "moonxi-net/moonxi-net/optimizer" @optimizer,
+  "chnlkw/moonxi-net" @tensor,
+  "chnlkw/moonxi-net/optimizer" @optimizer,
   "moonbitlang/core/debug" @debug,
   "moonbitlang/core/math" @math,
 }

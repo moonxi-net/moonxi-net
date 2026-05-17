@@ -1,5 +1,5 @@
 import {
-  "moonxi-net/moonxi-net" @tensor,
-  "moonxi-net/moonxi-net-gpu/cuda" @cuda,
-  "moonxi-net/moonxi-net-gpu/tensor" @gt,
+  "chnlkw/moonxi-net" @tensor,
+  "chnlkw/moonxi-net-gpu/cuda" @cuda,
+  "chnlkw/moonxi-net-gpu/tensor" @gt,
 }

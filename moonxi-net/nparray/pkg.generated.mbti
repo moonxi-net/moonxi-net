@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonxi-net/moonxi-net/nparray"
+package "chnlkw/moonxi-net/nparray"
 
 import {
-  "moonxi-net/moonxi-net",
-  "moonxi-net/moonxi-net/optimizer",
+  "chnlkw/moonxi-net",
+  "chnlkw/moonxi-net/optimizer",
   "moonbitlang/core/debug",
 }
 

@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonxi-net/moonxi-net/optimizer"
+package "chnlkw/moonxi-net/optimizer"
 
 import {
-  "moonxi-net/moonxi-net",
-  "moonxi-net/moonxi-net/grad",
+  "chnlkw/moonxi-net",
+  "chnlkw/moonxi-net/grad",
   "moonbitlang/core/debug",
 }
 
