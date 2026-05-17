@@ -1,0 +1,5 @@
+import {
+  "moonxi-net/moonxi-net" @tensor,
+  "moonxi-net/moonxi-net/dataloader" @dl,
+  "moonbitlang/x/fs" @fs,
+}

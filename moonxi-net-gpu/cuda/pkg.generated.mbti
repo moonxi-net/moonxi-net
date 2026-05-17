@@ -1,0 +1,252 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net-gpu/cuda"
+
+// Values
+pub fn accumulate_inplace(GpuBuffer, GpuBuffer, Int) -> Int
+
+pub fn adaptive_avg_pool2d_backward(GpuBuffer, GpuBuffer, Int, Int, Int, Int) -> Int
+
+pub fn adaptive_avg_pool2d_forward(GpuBuffer, GpuBuffer, Int, Int, Int, Int) -> Int
+
+pub fn alloc(Int64) -> GpuBuffer
+
+pub fn argmax(GpuBuffer, GpuBuffer, Int, Int) -> Int
+
+pub fn axpy(Int, Float, GpuBuffer, GpuBuffer) -> Int
+
+pub fn batch_gather(GpuBuffer, GpuBuffer, GpuBuffer, Int, Int) -> Int
+
+pub fn batchnorm_backward(BatchNormContext, CudnnHandle, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, Float) -> Int
+
+pub fn batchnorm_cache_clear() -> Unit
+
+pub fn batchnorm_cache_size() -> Int
+
+pub fn batchnorm_create(Int, Int, Int, Int) -> BatchNormContext
+
+pub fn batchnorm_destroy(BatchNormContext) -> Unit
+
+pub fn batchnorm_forward(BatchNormContext, CudnnHandle, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, Float, Float, Bool) -> Int
+
+pub fn bias_add_nchw(GpuBuffer, GpuBuffer, Int, Int, Int) -> Int
+
+pub fn check_error() -> Int
+
+pub fn compute_capability() -> (Int, Int)
+
+pub fn contiguous_norm_sq(GpuBuffer, Int, GpuBuffer) -> Int
+
+pub fn contiguous_sgd_momentum_step(GpuBuffer, GpuBuffer, GpuBuffer, Int, Float, Float, Float, Float) -> Int
+
+pub fn conv2d_backward_bias(CudnnHandle, GpuBuffer, GpuBuffer, Int, Int, Int, Int) -> Int
+
+pub fn conv2d_backward_data(Conv2dContext, CudnnHandle, GpuBuffer, GpuBuffer, GpuBuffer) -> Int
+
+pub fn conv2d_backward_filter(Conv2dContext, CudnnHandle, GpuBuffer, GpuBuffer, GpuBuffer) -> Int
+
+pub fn conv2d_cache_clear() -> Unit
+
+pub fn conv2d_cache_size() -> Int
+
+pub fn conv2d_create(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int) -> Conv2dContext
+
+pub fn conv2d_destroy(Conv2dContext) -> Unit
+
+pub fn conv2d_forward(Conv2dContext, CudnnHandle, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer) -> Int
+
+pub fn conv2d_forward_bias_relu(Conv2dContext, CudnnHandle, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer) -> Int
+
+pub fn copy_d2h(FixedArray[Float], GpuBuffer) -> Int
+
+pub fn copy_h2d(GpuBuffer, FixedArray[Float]) -> Int
+
+pub fn copy_h2d_offset(GpuBuffer, FixedArray[Float], Int, Int) -> Int
+
+pub fn copy_ptrs_h2d(GpuBuffer, FixedArray[GpuBuffer]) -> Int
+
+pub fn cublas_create() -> CublasHandle
+
+pub fn cublas_destroy(CublasHandle) -> Unit
+
+pub fn cublas_sgemm(CublasHandle, Int, Int, Int, Float, GpuBuffer, GpuBuffer, Float, GpuBuffer) -> Int
+
+pub fn cublas_sgemv(CublasHandle, Int, Int, Float, GpuBuffer, GpuBuffer, Float, GpuBuffer) -> Int
+
+pub fn cuda_batchnorm_inference(GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, Float, Int, Int, Int) -> Int
+
+pub fn cudnn_create() -> CudnnHandle
+
+pub fn cudnn_destroy(CudnnHandle) -> Unit
+
+pub fn cudnn_relu_backward(CudnnHandle, Int64, GpuBuffer, GpuBuffer, GpuBuffer) -> Int
+
+pub fn cudnn_relu_forward(CudnnHandle, Int64, GpuBuffer, GpuBuffer) -> Int
+
+pub fn device_count() -> Int
+
+pub fn device_name() -> String
+
+pub fn div_elem(GpuBuffer, GpuBuffer, GpuBuffer, Int) -> Int
+
+pub fn elementwise_add(GpuBuffer, GpuBuffer, GpuBuffer, Int) -> Int
+
+pub fn elementwise_add_into(GpuBuffer, GpuBuffer, Int) -> Int
+
+pub fn event_create() -> CudaEvent
+
+pub fn event_elapsed_ms(CudaEvent, CudaEvent) -> Float
+
+pub fn event_record(GpuBuffer, CudaEvent) -> Int
+
+pub fn event_synchronize(CudaEvent) -> Int
+
+pub fn fill(GpuBuffer, Int, Float) -> Int
+
+pub fn gather(GpuBuffer, GpuBuffer, GpuBuffer, Int, GpuBuffer) -> Int
+
+pub fn get_context(Int) -> GpuContext
+
+pub fn get_time_ms() -> Double
+
+pub fn gpu_init(Int) -> Unit
+
+pub fn matmul(CublasHandle, GpuBuffer, GpuBuffer, GpuBuffer, Int, Int, Int, Bool, Bool, Float, Float) -> Int
+
+pub fn memset_zero(GpuBuffer, Int64) -> Int
+
+pub fn moonbit_cuda_test_ptr_array_read(FixedArray[GpuBuffer], Int) -> Float
+
+pub fn mt_adam_autoclip(GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, Int, Int, Float, Float, Float, Float, Float, Float, Float, Float, Float, GpuBuffer, Float) -> Int
+
+pub fn mt_norm_sq_gpu_only(GpuBuffer, GpuBuffer, GpuBuffer, Int, Int, GpuBuffer) -> Int
+
+pub fn mt_rmsprop_autoclip(GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, Int, Int, Float, Float, Float, Float, Float, Float, Int, GpuBuffer, Float) -> Int
+
+pub fn mt_sgd_momentum_autoclip(GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, Int, Int, Float, Float, Float, GpuBuffer, Float) -> Int
+
+pub fn mt_sgd_momentum_gpu_only(GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, Int, Int, Float, Float, Float, Float) -> Int
+
+pub fn mul_elem(GpuBuffer, GpuBuffer, GpuBuffer, Int) -> Int
+
+pub fn multi_tensor_norm_sq(FixedArray[GpuBuffer], FixedArray[Int], Int, GpuBuffer) -> Int
+
+pub fn multi_tensor_norm_sq_gpu_only(GpuBuffer, GpuBuffer, Int, GpuBuffer) -> Int
+
+pub fn multi_tensor_sgd_momentum_step(FixedArray[GpuBuffer], FixedArray[GpuBuffer], FixedArray[GpuBuffer], FixedArray[Int], Int, Float, Float, Float, Float) -> Int
+
+pub fn multi_tensor_sgd_momentum_step_gpu_only(GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, Int, Float, Float, Float, Float) -> Int
+
+pub fn multi_tensor_sgd_momentum_step_prealloc(FixedArray[GpuBuffer], FixedArray[GpuBuffer], FixedArray[GpuBuffer], FixedArray[Int], Int, Float, Float, Float, Float, GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer) -> Int
+
+pub fn norm_sq(GpuBuffer, Int, GpuBuffer) -> Int
+
+pub fn null_buffer() -> GpuBuffer
+
+pub fn peek_error() -> Int
+
+pub fn pool2d_backward(Pool2dContext, CudnnHandle, GpuBuffer, GpuBuffer, GpuBuffer) -> Int
+
+pub fn pool2d_cache_clear() -> Unit
+
+pub fn pool2d_cache_size() -> Int
+
+pub fn pool2d_create(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int) -> Pool2dContext
+
+pub fn pool2d_destroy(Pool2dContext) -> Unit
+
+pub fn pool2d_forward(Pool2dContext, CudnnHandle, GpuBuffer, GpuBuffer) -> Int
+
+pub fn pool_alloc(GpuPool, Int64) -> GpuBuffer
+
+pub fn pool_capacity(GpuPool) -> Int64
+
+pub fn pool_create(Int64) -> GpuPool
+
+pub fn pool_peak(GpuPool) -> Int64
+
+pub fn pool_reset(GpuPool) -> Unit
+
+pub fn pool_used(GpuPool) -> Int64
+
+pub fn raw_h2d(GpuBuffer, FixedArray[Int]) -> Int
+
+pub fn read_scalar(GpuBuffer) -> Float
+
+pub fn reduce_sum_dim(GpuBuffer, GpuBuffer, Int, Int, Int, Int) -> Int
+
+pub fn reduce_sum_leading(GpuBuffer, GpuBuffer, Int, Int) -> Int
+
+pub fn reduce_sum_spatial(GpuBuffer, GpuBuffer, Int, Int, Int, Int) -> Int
+
+pub fn register_context(Int, GpuContext) -> Unit
+
+pub fn scale_inplace(GpuBuffer, Int, Float) -> Int
+
+pub fn scale_out(GpuBuffer, GpuBuffer, Int, Float) -> Int
+
+pub fn scatter(GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, Int) -> Int
+
+pub fn sgd_momentum_step(GpuBuffer, GpuBuffer, GpuBuffer, Int, Float, Float, Float, Float) -> Int
+
+pub fn sgd_step(GpuBuffer, GpuBuffer, Int, Float, Float) -> Int
+
+pub fn softmax_ce_backward(GpuBuffer, GpuBuffer, GpuBuffer, Int, Int) -> Int
+
+pub fn softmax_ce_backward_labels(GpuBuffer, GpuBuffer, GpuBuffer, Int, Int) -> Int
+
+pub fn softmax_ce_forward(GpuBuffer, GpuBuffer, GpuBuffer, GpuBuffer, Int, Int) -> Int
+
+pub fn softmax_ce_forward_labels(GpuBuffer, GpuBuffer, GpuBuffer, Int, Int) -> Int
+
+pub fn sqrt(GpuBuffer, GpuBuffer, Int) -> Int
+
+pub fn square(GpuBuffer, GpuBuffer, Int) -> Int
+
+pub fn sub(GpuBuffer, GpuBuffer, GpuBuffer, Int) -> Int
+
+pub fn sync() -> Unit
+
+pub fn transpose_2d(GpuBuffer, GpuBuffer, Int, Int) -> Int
+
+pub fn transpose_nchw_to_nhwc(GpuBuffer, GpuBuffer, Int, Int, Int, Int) -> Int
+
+pub fn transpose_nhwc_to_nchw(GpuBuffer, GpuBuffer, Int, Int, Int, Int) -> Int
+
+pub fn vec_add(GpuBuffer, GpuBuffer, GpuBuffer, Int) -> Int
+
+// Errors
+
+// Types and methods
+#external
+pub type BatchNormContext
+
+#external
+pub type Conv2dContext
+
+#external
+pub type CublasHandle
+
+#external
+pub type CudaEvent
+
+#external
+pub type CudnnHandle
+
+#external
+pub type GpuBuffer
+
+pub(all) struct GpuContext {
+  cublas : CublasHandle
+  cudnn : CudnnHandle
+}
+
+#external
+pub type GpuPool
+
+#external
+pub type Pool2dContext
+
+// Type aliases
+
+// Traits
+

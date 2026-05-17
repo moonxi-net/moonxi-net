@@ -1,0 +1,20 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net/utils"
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct Stopwatch {
+  mut start_ms : Float
+}
+pub fn Stopwatch::elapsed_ms(Self, () -> Float) -> Float
+pub fn Stopwatch::elapsed_s(Self, () -> Float) -> Float
+pub fn Stopwatch::new() -> Self
+pub fn Stopwatch::start(Self, () -> Float) -> Unit
+
+// Type aliases
+
+// Traits
+

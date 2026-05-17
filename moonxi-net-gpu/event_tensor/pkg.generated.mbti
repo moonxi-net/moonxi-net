@@ -1,0 +1,34 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net-gpu/event_tensor"
+
+import {
+  "moonxi-net/moonxi-net",
+  "moonxi-net/moonxi-net-gpu/tensor",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct CudaEventTensor {
+  inner : @tensor.GpuTensor
+}
+pub impl @moonxi-net.BlasTensor for CudaEventTensor
+pub impl @moonxi-net.ImageBackwardOps for CudaEventTensor
+pub impl @moonxi-net.ImageTensor for CudaEventTensor
+pub impl @moonxi-net.Tensor for CudaEventTensor
+
+pub(all) struct EventProfiler {
+  mut times : Map[String, (Float, Int)]
+}
+pub fn EventProfiler::global() -> Self
+pub fn EventProfiler::new() -> Self
+pub fn EventProfiler::print(Self) -> Unit
+pub fn EventProfiler::record(Self, String, Float) -> Unit
+pub fn EventProfiler::reset(Self) -> Unit
+
+// Type aliases
+
+// Traits
+

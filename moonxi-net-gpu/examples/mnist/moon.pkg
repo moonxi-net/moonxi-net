@@ -1,0 +1,20 @@
+import {
+  "moonxi-net/moonxi-net" @tensor,
+  "moonxi-net/moonxi-net/grad" @grad,
+  "moonxi-net/moonxi-net/dataloader" @dl,
+  "moonxi-net/moonxi-net/datasets/mnist" @data,
+  "moonxi-net/moonxi-net-gpu/train" @gpu_train,
+  "moonxi-net/moonxi-net-gpu/tensor" @gt,
+  "moonxi-net/moonxi-net/loss" @loss,
+  "moonxi-net/moonxi-net/model" @model,
+  "moonxi-net/moonxi-net/optimizer" @optimizer,
+  "moonxi-net/moonxi-net/train" @train,
+  "moonxi-net/moonxi-net/nparray" @nparray,
+  "brickfrog/moontrace/console" @log_console,
+  "moonbitlang/core/argparse" @argparse,
+  "moonbitlang/core/string" @string,
+}
+
+options(
+  "is-main": true,
+)

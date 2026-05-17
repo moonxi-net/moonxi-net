@@ -1,0 +1,88 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net/model"
+
+import {
+  "moonxi-net/moonxi-net",
+}
+
+// Values
+pub fn[T] fn_module((T) -> T) -> Module[T]
+
+pub fn[T : @moonxi-net.Tensor] init_mlp() -> MLP[T]
+
+pub fn[T : @moonxi-net.Tensor] init_resnet18(Int) -> ResNet18[T]
+
+pub fn[T] sequential(Array[Module[T]]) -> Module[T]
+
+// Errors
+
+// Types and methods
+pub(all) struct BasicBlock[T] {
+  mut conv1 : Conv2d[T]
+  mut bn1 : BatchNorm2d[T]
+  mut conv2 : Conv2d[T]
+  mut bn2 : BatchNorm2d[T]
+  mut shortcut : Conv2d[T]?
+  mut shortcut_bn : BatchNorm2d[T]?
+}
+pub fn[T : @moonxi-net.Tensor + @moonxi-net.ImageTensor] BasicBlock::forward(Self[T], T, is_training~ : Bool, Int) -> T
+
+pub(all) struct BatchNorm2d[T] {
+  mut gamma : T
+  mut beta : T
+  mut running_mean : T
+  mut running_var : T
+}
+pub fn[T : @moonxi-net.ImageTensor] BatchNorm2d::as_module(Self[T], momentum? : Float, eps? : Float) -> Module[T]
+
+pub(all) struct Conv2d[T] {
+  mut weight : T
+  mut bias : T
+}
+pub fn[T : @moonxi-net.ImageTensor] Conv2d::as_module(Self[T], stride? : Int, padding? : Int) -> Module[T]
+
+pub(all) struct Linear[T] {
+  mut w : T
+  mut b : T
+}
+pub fn[T : @moonxi-net.Tensor + @moonxi-net.BlasTensor] Linear::as_module(Self[T]) -> Module[T]
+pub fn[T : @moonxi-net.Tensor + @moonxi-net.BlasTensor] Linear::forward(Self[T], T) -> T
+
+pub(all) struct MLP[T] {
+  mut fc1 : Linear[T]
+  mut fc2 : Linear[T]
+  mut fc3 : Linear[T]
+}
+pub fn[T : @moonxi-net.Tensor + @moonxi-net.BlasTensor + @moonxi-net.ImageTensor] MLP::as_module(Self[T]) -> Module[T]
+pub fn[T : @moonxi-net.Tensor + @moonxi-net.BlasTensor + @moonxi-net.ImageTensor] MLP::forward(Self[T], T) -> T
+pub fn[T] MLP::params(Self[T]) -> Array[T]
+
+pub(all) struct Module[T] {
+  forward : (T, Bool) -> T
+  trainable_params : () -> Array[T]
+}
+
+pub(all) struct ResNet18[T] {
+  mut stem_conv : Conv2d[T]
+  mut stem_bn : BatchNorm2d[T]
+  mut layer1 : ResNetLayer[T]
+  mut layer2 : ResNetLayer[T]
+  mut layer3 : ResNetLayer[T]
+  mut layer4 : ResNetLayer[T]
+  mut head_weight : T
+  mut head_bias : T
+}
+pub fn[T : @moonxi-net.Tensor + @moonxi-net.BlasTensor + @moonxi-net.ImageTensor] ResNet18::as_module(Self[T]) -> Module[T]
+pub fn[T : @moonxi-net.Tensor + @moonxi-net.BlasTensor + @moonxi-net.ImageTensor] ResNet18::forward(Self[T], T, is_training~ : Bool) -> T
+pub fn[T : @moonxi-net.Tensor + @moonxi-net.ImageTensor] ResNet18::forward_features(Self[T], T, is_training~ : Bool) -> T
+pub fn[T] ResNet18::params(Self[T]) -> Array[T]
+
+pub(all) struct ResNetLayer[T] {
+  mut blocks : Array[BasicBlock[T]]
+}
+pub fn[T : @moonxi-net.Tensor + @moonxi-net.ImageTensor] ResNetLayer::forward(Self[T], T, is_training~ : Bool, Int) -> T
+
+// Type aliases
+
+// Traits
+

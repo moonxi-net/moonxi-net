@@ -1,0 +1,20 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net/dataloader"
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct DataLoader[T] {
+  num_samples : Int
+  get : (Int) -> (T, T)
+  batch : (ArrayView[Int]) -> (T, T)
+}
+pub fn[T] DataLoader::batches(Self[T], Int, shuffle? : Bool) -> Iter[(T, T)]
+pub fn[T] DataLoader::num_samples(Self[T]) -> Int
+
+// Type aliases
+
+// Traits
+

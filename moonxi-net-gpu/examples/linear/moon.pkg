@@ -1,0 +1,10 @@
+import {
+  "moonxi-net/moonxi-net" @tensor,
+  "moonxi-net/moonxi-net-gpu/tensor" @gt,
+  "moonxi-net/moonxi-net-gpu/cuda" @cuda,
+  "moonxi-net/moonxi-net/grad" @grad,
+}
+
+options(
+  "is-main": true,
+)

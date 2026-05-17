@@ -1,0 +1,9 @@
+import {
+  "moonxi-net/moonxi-net" @tensor,
+  "moonxi-net/moonxi-net/nparray" @nparray,
+  "moonxi-net/moonxi-net/grad" @grad,
+}
+
+options(
+  "is-main": true,
+)

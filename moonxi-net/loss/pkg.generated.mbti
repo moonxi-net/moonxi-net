@@ -1,0 +1,31 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net/loss"
+
+import {
+  "moonxi-net/moonxi-net",
+}
+
+// Values
+pub fn[T : @moonxi-net.ImageTensor] cross_entropy(T, T) -> T
+
+pub fn[T : @moonxi-net.ImageTensor] cross_entropy_loss(Int) -> LossFn[T]
+
+pub fn[T : @moonxi-net.ImageTensor] cross_entropy_onehot_loss() -> LossFn[T]
+
+pub fn[T : @moonxi-net.ImageTensor] cross_entropy_with_labels(T, T, Int) -> T
+
+pub fn[T : @moonxi-net.Tensor] mse(T, T) -> T
+
+pub fn[T : @moonxi-net.Tensor] mse_loss() -> LossFn[T]
+
+// Errors
+
+// Types and methods
+pub(all) struct LossFn[T] {
+  loss : (T, T) -> T
+}
+
+// Type aliases
+
+// Traits
+

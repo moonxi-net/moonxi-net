@@ -1,0 +1,36 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net/train"
+
+import {
+  "moonxi-net/moonxi-net",
+  "moonxi-net/moonxi-net/dataloader",
+  "moonxi-net/moonxi-net/grad",
+  "moonxi-net/moonxi-net/loss",
+  "moonxi-net/moonxi-net/model",
+  "moonxi-net/moonxi-net/optimizer",
+}
+
+// Values
+pub fn fisher_yates_shuffle(Array[Int]) -> Array[Int]
+
+pub fn[T : @moonxi-net.Tensor] run_cpu(Experiment[T], @dataloader.DataLoader[T], epochs? : Int, batch_size? : Int, eval_loader? : @dataloader.DataLoader[T], on_batch_end? : (Int, Int, Float) -> Unit, on_epoch_end? : (Int, Double, Double, Double) -> Unit) -> Unit
+
+// Errors
+
+// Types and methods
+pub(all) struct Experiment[T] {
+  forward : (@grad.Grad[T], Bool) -> @grad.Grad[T]
+  loss : (@grad.Grad[T], @grad.Grad[T]) -> @grad.Grad[T]
+  optim : @optimizer.Optimizer[T]
+  lr_scheduler : @optimizer.StepLR
+}
+pub fn[T] Experiment::eval(Self[T], @dataloader.DataLoader[T], batch_size? : Int) -> Array[(T, T)]
+pub fn[T] Experiment::eval_step(Self[T], T) -> T
+pub fn[T] Experiment::new(model~ : @model.Module[@grad.Grad[T]], loss~ : @loss.LossFn[@grad.Grad[T]], optim~ : (Array[@grad.Grad[T]]) -> @optimizer.Optimizer[T], scheduler~ : @optimizer.StepLR) -> Self[T]
+pub fn[T : @moonxi-net.Tensor] Experiment::run(Self[T], @dataloader.DataLoader[T], epochs? : Int, batch_size? : Int, on_batch_end? : (Int, T) -> Unit, on_epoch_end? : (Int, Int) -> Unit, post_batch? : () -> Unit) -> Unit
+pub fn[T : @moonxi-net.Tensor] Experiment::train_step(Self[T], T, T) -> T
+
+// Type aliases
+
+// Traits
+

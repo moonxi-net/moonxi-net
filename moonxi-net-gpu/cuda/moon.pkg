@@ -1,0 +1,17 @@
+import {
+  "moonbitlang/core/encoding/utf8" @utf8,
+}
+
+options(
+  link: {
+    "native": {
+      "link-libraries": [ "cudart", "cublas", "cudnn", "stdc++" ],
+      "link-search-paths": [
+        "/usr/local/cuda/lib64",
+        "/usr/lib/x86_64-linux-gnu",
+      ],
+      "nvcc-flags": "--generate-code arch=compute_75,code=[sm_75,compute_75] --generate-code arch=compute_80,code=[sm_80,compute_80] --generate-code arch=compute_86,code=[sm_86,compute_86] --generate-code arch=compute_89,code=[sm_89,compute_89] --generate-code arch=compute_120,code=[sm_120,compute_120] -Wno-deprecated-gpu-targets",
+    },
+  },
+  "native-stub": [ "cuda_stub.c", "cuda_kernels.cu" ],
+)

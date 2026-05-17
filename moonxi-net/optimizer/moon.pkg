@@ -1,0 +1,9 @@
+import {
+  "moonxi-net/moonxi-net" @tensor,
+  "moonxi-net/moonxi-net/grad" @grad,
+  "moonbitlang/core/math" @math,
+}
+
+import {
+  "moonxi-net/moonxi-net/nparray" @nparray,
+} for "wbtest"

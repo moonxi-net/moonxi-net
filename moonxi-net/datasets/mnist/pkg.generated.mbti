@@ -1,0 +1,31 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net/datasets/mnist"
+
+import {
+  "moonxi-net/moonxi-net",
+  "moonxi-net/moonxi-net/dataloader",
+}
+
+// Values
+pub fn load_mnist_images(String, String) -> Array[MnistExample] raise
+
+pub let mnist_labels : Array[String]
+
+pub fn[T : @moonxi-net.Tensor] mnist_loaders(String) -> (@dataloader.DataLoader[T], @dataloader.DataLoader[T]) raise
+
+pub fn mnist_to_tensors(ArrayView[MnistExample], Int, Int) -> (FixedArray[Float], FixedArray[Float])
+
+pub fn mnist_to_tensors_with_labels(ArrayView[MnistExample], Int, Int) -> (FixedArray[Float], FixedArray[Float])
+
+// Errors
+
+// Types and methods
+pub(all) struct MnistExample {
+  pixels : FixedArray[Float]
+  label : Int
+}
+
+// Type aliases
+
+// Traits
+

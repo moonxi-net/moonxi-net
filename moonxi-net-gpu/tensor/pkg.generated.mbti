@@ -1,0 +1,121 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net-gpu/tensor"
+
+import {
+  "moonxi-net/moonxi-net",
+  "moonxi-net/moonxi-net/optimizer",
+  "moonxi-net/moonxi-net-gpu/cuda",
+}
+
+// Values
+pub fn contiguous_sgd_step(ContiguousOptimState, Array[GpuTensor], Float, Float, Float, Float) -> Unit
+
+pub fn contiguous_state_new(Array[GpuTensor], Array[GpuTensor]) -> ContiguousOptimState
+
+pub fn gpu_adaptive_avg_pool2d(GpuTensor) -> GpuTensor
+
+pub fn gpu_add(GpuTensor, GpuTensor) -> GpuTensor
+
+pub fn gpu_avg_pool2d(GpuTensor, Int, Int, Int, @cuda.CudnnHandle) -> GpuTensor
+
+pub fn gpu_batchnorm_inference(GpuTensor, GpuTensor, GpuTensor, GpuTensor, GpuTensor, Float, @cuda.CudnnHandle) -> GpuTensor
+
+pub fn gpu_batchnorm_training(GpuTensor, GpuTensor, GpuTensor, GpuTensor, GpuTensor, Float, Float, @cuda.CudnnHandle) -> (GpuTensor, GpuTensor, GpuTensor)
+
+pub fn gpu_conv2d(GpuTensor, GpuTensor, GpuTensor, @cuda.CudnnHandle, Int, Int) -> GpuTensor
+
+pub fn gpu_cross_entropy_with_labels(GpuTensor, GpuTensor, Int) -> GpuTensor
+
+pub fn gpu_enable_pool(Int64) -> Unit
+
+pub fn gpu_is_inference() -> Bool
+
+pub fn gpu_linear(GpuTensor, GpuTensor, GpuTensor, @cuda.CublasHandle) -> GpuTensor
+
+pub fn gpu_maxpool2d(GpuTensor, Int, Int, Int, @cuda.CudnnHandle) -> GpuTensor
+
+pub fn gpu_pool_peak() -> Int64
+
+pub fn gpu_pool_used() -> Int64
+
+pub fn gpu_relu(GpuTensor, @cuda.CudnnHandle) -> GpuTensor
+
+pub fn gpu_set_inference(Bool) -> Unit
+
+pub fn gpu_softmax_ce_backward_labels(GpuTensor, GpuTensor, Int) -> GpuTensor
+
+pub fn gpu_softmax_cross_entropy(GpuTensor, GpuTensor, @cuda.CublasHandle) -> GpuTensor
+
+pub fn[T] gpu_with_inference(Bool, () -> T) -> T
+
+pub fn gpu_workspace_reset() -> Unit
+
+pub fn multi_tensor_sgd_step(MultiTensorOptimState, Array[GpuTensor], Float, Float, Float, Float) -> Unit
+
+pub fn multi_tensor_state_new(Array[GpuTensor], Array[GpuTensor]) -> MultiTensorOptimState
+
+// Errors
+
+// Types and methods
+pub(all) struct ContiguousOptimState {
+  flat_params : @cuda.GpuBuffer
+  flat_grads : @cuda.GpuBuffer
+  flat_vels : @cuda.GpuBuffer
+  norm_buf : @cuda.GpuBuffer
+  d_param_ptrs : @cuda.GpuBuffer
+  d_grad_ptrs : @cuda.GpuBuffer
+  d_vel_ptrs : @cuda.GpuBuffer
+  d_sizes : @cuda.GpuBuffer
+  d_offsets : @cuda.GpuBuffer
+  param_ptrs : FixedArray[@cuda.GpuBuffer]
+  vel_ptrs : FixedArray[@cuda.GpuBuffer]
+  sizes : FixedArray[Int]
+  offsets : FixedArray[Int]
+  total_elements : Int
+  num_tensors : Int
+}
+
+pub(all) struct GpuTensor {
+  data : @cuda.GpuBuffer
+  shape : @moonxi-net.ShapeTensor
+}
+pub fn GpuTensor::add_into(Self, Self) -> Unit
+pub fn GpuTensor::alloc_shape(Array[Int]) -> Self
+pub fn GpuTensor::alloc_st(@moonxi-net.ShapeTensor) -> Self
+pub fn GpuTensor::argmax(Self) -> Self
+pub fn GpuTensor::compute_stride(Array[Int]) -> Array[Int]
+pub fn GpuTensor::dim(Self, Int) -> Int
+pub fn GpuTensor::from_host(FixedArray[Float], Array[Int]) -> Self
+pub fn GpuTensor::item(Self) -> Float
+pub fn GpuTensor::ndim(Self) -> Int
+pub fn GpuTensor::numel(Self) -> Int
+pub fn GpuTensor::shape_numel(Array[Int]) -> Int
+pub fn GpuTensor::stride(Self) -> Array[Int]
+pub fn GpuTensor::to_host(Self) -> FixedArray[Float]
+pub fn GpuTensor::view(Self, Array[Int]) -> Self
+pub fn GpuTensor::zeros(Array[Int]) -> Self
+pub fn GpuTensor::zeros_st(@moonxi-net.ShapeTensor) -> Self
+pub impl @moonxi-net.BlasTensor for GpuTensor
+pub impl @moonxi-net.ImageBackwardOps for GpuTensor
+pub impl @moonxi-net.ImageTensor for GpuTensor
+pub impl @moonxi-net.Tensor for GpuTensor
+pub impl @optimizer.BatchAdamAutoclip for GpuTensor
+pub impl @optimizer.BatchRmspropAutoclip for GpuTensor
+pub impl @optimizer.BatchSgdMomentumAutoclip for GpuTensor
+
+pub(all) struct MultiTensorOptimState {
+  d_param_ptrs : @cuda.GpuBuffer
+  d_grad_ptrs : @cuda.GpuBuffer
+  d_vel_ptrs : @cuda.GpuBuffer
+  d_sizes : @cuda.GpuBuffer
+  d_block_offsets : @cuda.GpuBuffer
+  norm_buf : @cuda.GpuBuffer
+  grad_ptrs : FixedArray[@cuda.GpuBuffer]
+  num_tensors : Int
+  total_blocks : Int
+}
+
+// Type aliases
+
+// Traits
+

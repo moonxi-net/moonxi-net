@@ -1,0 +1,37 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net/grad"
+
+import {
+  "moonxi-net/moonxi-net",
+}
+
+// Values
+pub fn clear_tape() -> Unit
+
+pub fn[T] no_grad(T) -> Grad[T]
+
+pub fn[T : @moonxi-net.Tensor] record_accumulate(Grad[T], Grad[T], (T) -> T) -> Unit
+
+pub fn tape_length() -> Int
+
+// Errors
+
+// Types and methods
+pub(all) struct Grad[T] {
+  mut value : T
+  mut grad : T??
+}
+pub fn[T : @moonxi-net.Tensor] Grad::backward(Self[T]) -> Unit
+pub fn[T : @moonxi-net.Tensor] Grad::backward_profiled(Self[T], () -> Double) -> Array[Double]
+pub fn[T] Grad::grad(Self[T]) -> T??
+pub fn[T] Grad::init(T) -> Self[T]
+pub fn[T] Grad::value(Self[T]) -> T
+pub impl[T : @moonxi-net.Tensor + @moonxi-net.BlasTensor] @moonxi-net.BlasTensor for Grad[T]
+pub impl[T : @moonxi-net.Tensor + @moonxi-net.ImageBackwardOps] @moonxi-net.ImageBackwardOps for Grad[T]
+pub impl[T : @moonxi-net.Tensor + @moonxi-net.ImageTensor + @moonxi-net.ImageBackwardOps] @moonxi-net.ImageTensor for Grad[T]
+pub impl[T : @moonxi-net.Tensor] @moonxi-net.Tensor for Grad[T]
+
+// Type aliases
+
+// Traits
+

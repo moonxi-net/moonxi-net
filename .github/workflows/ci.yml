@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup MoonBit
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> $GITHUB_PATH
+
+      - name: Update dependencies
+        run: cd moonxi-net && moon update
+
+      - name: Check formatting
+        run: cd moonxi-net && moon fmt && git diff --exit-code
+
+      - name: Type check
+        run: cd moonxi-net && moon check --target native --deny-warn
+
+      - name: Run CPU tests
+        run: |
+          cd moonxi-net && moon test --target native \
+            -p moonxi-net/moonxi-net/nparray \
+            -p moonxi-net/moonxi-net/grad \
+            -p moonxi-net/moonxi-net/optimizer \
+            -p moonxi-net/moonxi-net/model \
+            -p moonxi-net/moonxi-net/train \
+            -p moonxi-net/moonxi-net/loss \
+            -p moonxi-net/moonxi-net/dataloader \
+            -p moonxi-net/moonxi-net/utils \
+            -p moonxi-net/moonxi-net/datasets/cifar10 \
+            -p moonxi-net/moonxi-net/datasets/mnist
+
+      - name: Verify interfaces
+        run: cd moonxi-net && moon info && git diff --exit-code

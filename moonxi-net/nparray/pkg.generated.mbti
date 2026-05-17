@@ -1,0 +1,35 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net/nparray"
+
+import {
+  "moonxi-net/moonxi-net",
+  "moonxi-net/moonxi-net/optimizer",
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn fused_linear(input~ : NpArray, weight~ : NpArray, bias~ : NpArray) -> NpArray
+
+pub fn fused_linear_relu(input~ : NpArray, weight~ : NpArray, bias~ : NpArray) -> (NpArray, NpArray)
+
+// Errors
+
+// Types and methods
+pub(all) struct NpArray {
+  mut shape : @moonxi-net.ShapeTensor
+  mut data : FixedArray[Float]
+} derive(@debug.Debug)
+pub fn NpArray::from1d(ArrayView[Float]) -> Self
+pub fn NpArray::from2d(ArrayView[ArrayView[Float]]) -> Self
+pub impl @moonxi-net.BlasTensor for NpArray
+pub impl @moonxi-net.ImageBackwardOps for NpArray
+pub impl @moonxi-net.ImageTensor for NpArray
+pub impl @moonxi-net.Tensor for NpArray
+pub impl @optimizer.BatchSgdMomentumAutoclip for NpArray
+pub impl Add for NpArray
+pub impl Sub for NpArray
+
+// Type aliases
+
+// Traits
+

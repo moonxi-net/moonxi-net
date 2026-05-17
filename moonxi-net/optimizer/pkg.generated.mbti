@@ -1,0 +1,84 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net/optimizer"
+
+import {
+  "moonxi-net/moonxi-net",
+  "moonxi-net/moonxi-net/grad",
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn[T : @moonxi-net.Tensor + BatchAdamAutoclip] adam(Array[@grad.Grad[T]], Double, Double, Double, Double) -> Optimizer[T]
+
+pub fn[T : @moonxi-net.Tensor + BatchSgdMomentumAutoclip + BatchAdamAutoclip + BatchRmspropAutoclip] make_optimizer(String) -> ((Array[@grad.Grad[T]]) -> Optimizer[T], Double) raise
+
+pub fn[T : @moonxi-net.Tensor + BatchSgdMomentumAutoclip] momentum_sgd(Array[@grad.Grad[T]], Double, Double, Double) -> Optimizer[T]
+
+pub fn[T : @moonxi-net.Tensor + BatchRmspropAutoclip] rmsprop(Array[@grad.Grad[T]], Double, Double, Double, Double) -> Optimizer[T]
+
+// Errors
+
+// Types and methods
+pub(all) struct AdamConfig {
+  lr : Float
+  beta1 : Float
+  beta2 : Float
+  one_minus_beta1 : Float
+  one_minus_beta2 : Float
+  bias_correction1 : Float
+  bias_correction2 : Float
+  eps : Float
+  weight_decay : Float
+  max_grad_norm : Float
+} derive(@debug.Debug)
+
+pub(all) struct Optimizer[T] {
+  params : Array[@grad.Grad[T]]
+  _step : (Array[@grad.Grad[T]], Float) -> Unit
+}
+pub fn[T] Optimizer::step(Self[T], Float) -> Unit
+pub fn[T] Optimizer::zero_grad(Self[T]) -> Unit
+
+pub(all) struct RmspropConfig {
+  lr : Float
+  alpha : Float
+  one_minus_alpha : Float
+  eps : Float
+  weight_decay : Float
+  momentum : Float
+  has_momentum : Bool
+  max_grad_norm : Float
+} derive(@debug.Debug)
+
+pub(all) struct SgdMomentumConfig {
+  lr : Float
+  momentum : Float
+  weight_decay : Float
+  max_grad_norm : Float
+} derive(@debug.Debug)
+
+pub(all) struct StepLR {
+  step_size : Int
+  gamma : Float
+  mut step_count : Int
+  mut lr : Float
+}
+pub fn StepLR::get_lr(Self) -> Float
+pub fn StepLR::new(Double, Int, Double) -> Self
+pub fn StepLR::step(Self) -> Float
+
+// Type aliases
+
+// Traits
+pub(open) trait BatchAdamAutoclip {
+  batch_adam_autoclip(Array[Self], Array[Self], Array[Self], Array[Self], AdamConfig) -> Unit
+}
+
+pub(open) trait BatchRmspropAutoclip {
+  batch_rmsprop_autoclip(Array[Self], Array[Self], Array[Self], Array[Self], RmspropConfig) -> Unit
+}
+
+pub(open) trait BatchSgdMomentumAutoclip {
+  batch_sgd_momentum_autoclip(Array[Self], Array[Self], Array[Self], SgdMomentumConfig) -> Unit
+}
+

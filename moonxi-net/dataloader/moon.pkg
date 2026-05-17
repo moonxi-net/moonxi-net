@@ -1,0 +1,7 @@
+import {
+  "moonbitlang/core/random" @random,
+}
+
+import {
+  "moonxi-net/moonxi-net/nparray" @nparray,
+} for "wbtest"

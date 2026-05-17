@@ -1,0 +1,7 @@
+import {
+  "moonxi-net/moonxi-net" @tensor,
+}
+
+import {
+  "moonxi-net/moonxi-net/nparray" @nparray,
+} for "wbtest"

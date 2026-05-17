@@ -1,0 +1,99 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonxi-net/moonxi-net"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+pub(all) suberror CudaError {
+  CudaError(String)
+} derive(@debug.Debug)
+
+pub(all) suberror IoError {
+  IoError(String)
+} derive(@debug.Debug)
+
+pub(all) suberror ShapeError {
+  ShapeError(String)
+} derive(@debug.Debug)
+
+pub(all) suberror UnsupportedError {
+  UnsupportedError(String)
+} derive(@debug.Debug)
+
+// Types and methods
+pub(all) struct ShapeTensor {
+  shape : FixedArray[Int]
+} derive(@debug.Debug)
+pub fn ShapeTensor::dim(Self, Int) -> Int
+pub fn ShapeTensor::from_array(Array[Int]) -> Self
+pub fn ShapeTensor::linear(Self, Self) -> Self
+pub fn ShapeTensor::ndim(Self) -> Int
+pub fn ShapeTensor::pool2d(Self, Int, Int, Int) -> Self
+pub fn ShapeTensor::to_array(Self) -> Array[Int]
+pub impl BlasTensor for ShapeTensor
+pub impl ImageBackwardOps for ShapeTensor
+pub impl ImageTensor for ShapeTensor
+pub impl Tensor for ShapeTensor
+
+pub(all) struct TensorData {
+  dims : FixedArray[Int]
+  data : FixedArray[Float]
+} derive(@debug.Debug)
+
+// Type aliases
+
+// Traits
+pub(open) trait BlasTensor {
+  matmul(Self, Self) -> Self
+  transpose(Self) -> Self
+}
+
+pub(open) trait ImageBackwardOps {
+  conv2d_backward_data(Self, Self, Self, Int, Int) -> Self
+  conv2d_backward_weight(Self, Self, Self, Int, Int) -> Self
+  conv2d_backward_bias(Self) -> Self
+  relu_backward(Self, Self) -> Self
+  batchnorm_backward(Self, Self, Self, Self, Self, Float) -> (Self, Self, Self)
+  maxpool2d_backward(Self, Self, Int, Int) -> Self
+  adaptive_avg_pool2d_backward(Self, Self) -> Self
+  softmax_ce_backward(Self, Self) -> Self
+  softmax_ce_backward_labels(Self, Self, Int) -> Self
+}
+
+pub(open) trait ImageTensor {
+  conv2d(Self, Self, Self, Int, Int) -> Self
+  relu(Self) -> Self
+  maxpool2d(Self, Int, Int) -> Self
+  adaptive_avg_pool2d(Self, Int) -> Self
+  batchnorm_training(Self, Self, Self, Self, Self, Float, Float) -> (Self, Self, Self)
+  batchnorm_inference(Self, Self, Self, Self, Self, Float) -> Self
+  softmax_cross_entropy(Self, Self) -> Self
+  cross_entropy_with_labels(Self, Self, Int) -> Self
+}
+
+pub(open) trait Tensor {
+  dims(Self) -> FixedArray[Int]
+  zeros(FixedArray[Int]) -> Self
+  zeros_like(Self) -> Self
+  from_host(FixedArray[Float], Array[Int]) -> Self
+  square(Self) -> Self
+  sqrt(Self) -> Self
+  mean(Self) -> Self
+  scale(Self, Float) -> Self
+  mul_elem(Self, Self) -> Self
+  div_elem(Self, Self) -> Self
+  scalar(Float) -> Self
+  size(Self) -> Int
+  reduce_sum_to(Self, FixedArray[Int]) -> Self
+  value(Self) -> TensorData
+  view(Self, FixedArray[Int]) -> Self
+  add(Self, Self) -> Self
+  add_into(Self, Self) -> Unit
+  sub(Self, Self) -> Self
+  broadcast_to(Self, FixedArray[Int]) -> Self
+}
+
